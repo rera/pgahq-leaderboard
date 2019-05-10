@@ -1,0 +1,35 @@
+//colors
+$black: #000000;
+$charcoal: #222222;
+$slate: #333333;
+$granite: #555555;
+$marble: #aaaaaa;
+$stone: #cccccc;
+$chalk: #f5f5f5;
+$white: #ffffff;
+$gold: #ac8d50;
+$navy: #072042;
+$error: #b00020;
+
+//fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway:300,400,600,700');
+@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
+$body: 'Raleway',sans-serif;
+$headings: 'Lato', sans-serif;
+$icon: 'Font Awesome 5 Free';
+$light: 300;
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+
+//settings
+$radius: 4px;
+
+//states
+:focus {
+  outline-color: $stone;
+}
+::selection {
+  background-color: $navy;
+  color: $white;
+}

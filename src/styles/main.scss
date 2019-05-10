@@ -1,0 +1,16 @@
+@import "./variables";
+@import "./responsive";
+
+@import "./header";
+@import "./leaderboard";
+@import "./new";
+@import "./modal";
+@import "./loading";
+
+html, body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: $body;
+}

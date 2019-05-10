@@ -1,0 +1,59 @@
+{
+  "name": "pgahq-leaderboard",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://pgahq.davidcabrera.me",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
+    "react-scripts": "3.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "react-test-renderer": "^16.8.6",
+    "standard": "^12.0.1"
+  },
+  "resolutions": {
+    "enzyme-adapter-react-16/react-test-renderer": "^16.3.2"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/setupTests.js"
+    ]
+  }
+}

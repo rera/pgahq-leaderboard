@@ -1,0 +1,35 @@
+#newPlayer {
+	button {
+		visibility: hidden;
+
+		&:before {
+			content: "\f234";
+			visibility: visible;
+			font-family: $icon;
+			font-weight: 900;
+			font-size: 2em;
+			display: block;
+			background: $white;
+			border-radius: $radius;
+			border: solid .2em $chalk;
+			color: $navy;
+			line-height: 1.8em;
+			margin-top: .1em;
+			position: relative;
+			right: .4em;
+
+			@include sm {
+				right: .2em;
+			}
+			@include md {
+				right: -.3em;
+			}
+		}
+
+		&:hover {
+			&:before {
+				background: $chalk;
+			}
+		}
+	}
+}
