@@ -3,6 +3,8 @@ table#leaderboard {
 	height: 100vh;
 	border-spacing: 0;
 	background-color: $chalk;
+	overflow-y: hidden;
+	
 	@include sm {
 		width: 80vw;
 		margin: 2em auto;
@@ -33,6 +35,7 @@ table#leaderboard {
 	thead {
 		position: fixed;
 		width: 100vw;
+
 		@include sm {
 			position: relative;
 			width: 80vw;
@@ -73,8 +76,22 @@ table#leaderboard {
 		}
 	}
 	tbody {
+		display: block;
 		overflow-y: scroll;
-		height: 100vh;
+	  -webkit-overflow-scrolling: touch;
+		position: absolute;
+		top: 7.4em;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+
+		@include xs {
+			position: relative;
+			overflow-y: auto;
+			top: auto;
+			display: table-row-group;
+		}
 
 		tr {
 			td {
@@ -108,15 +125,6 @@ table#leaderboard {
 
 					&:hover {
 						background-color: $marble;
-					}
-				}
-			}
-
-			&:first-of-type {
-				td {
-					padding-top: 3em;
-					@include sm {
-						padding-top: 0;
 					}
 				}
 			}

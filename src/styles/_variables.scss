@@ -33,3 +33,9 @@ $radius: 4px;
   background-color: $navy;
   color: $white;
 }
+
+//overrides
+input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
