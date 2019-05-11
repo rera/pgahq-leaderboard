@@ -3,41 +3,50 @@ import Player from '../Player.js'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
+const createPlayer = (p) => {
+  return new Player(p.id, p.firstName, p.lastName, p.score)
+}
+
 export default {
   allPlayers: async () => {
     try {
       const response = await axios.get(`${apiUrl}/players`)
-      const players = response.data.data.reduce((a, p) => {
-        a.push(new Player(p.id, p.firstName, p.lastName, p.score))
-        return a
-      }, [])
-      return players
+      return response.data.data.map(p => createPlayer(p))
     } catch (error) {
-      // @TODO: handle error
+      console.log(error)
     }
   },
-  createPlayer: async (data) => {
+  createPlayer: async (player) => {
     try {
       const response = await axios.post(`${apiUrl}/players`, {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        score: data.score
+        firstName: player.name.firstName,
+        lastName: player.name.lastName,
+        score: Number(player.score)
       })
-      const p = response.data.data[0]
-      const player = new Player(p.id, p.firstName, p.lastName, p.score)
-      return player
+      return createPlayer(response.data.data[0])
     } catch (error) {
-      // @TODO: handle error
+      console.log(error)
+    }
+  },
+  editPlayer: async (player) => {
+    try {
+      const response = await axios.put(`${apiUrl}/players/${player.id}`, {
+        id: player.id,
+        firstName: player.name.firstName,
+        lastName: player.name.lastName,
+        score: player.score
+      })
+      return createPlayer(response.data.data[0])
+    } catch (error) {
+      console.log(error)
     }
   },
   deletePlayer: async (id) => {
     try {
       const response = await axios.delete(`${apiUrl}/players/${id}`)
-			const p = response.data.data[0]
-			const player = new Player(p.id, p.firstName, p.lastName, p.score)
-			return player
+      return createPlayer(response.data.data[0])
     } catch (error) {
-      // @TODO: handle error
+      console.log(error)
     }
   }
 }

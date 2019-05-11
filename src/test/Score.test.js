@@ -1,4 +1,4 @@
-import Score, {ScoreError} from '../Score'
+import Score, { ScoreError } from '../Score'
 
 it('initializes', () => {
   const testScore = new Score(99)

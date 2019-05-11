@@ -7,7 +7,7 @@ it('initializes', () => {
 
 it('shows correctly formatted name', () => {
   const player = new Player(999, 'John', 'Doe', 99)
-  expect(player.name).toEqual('Doe, John')
+  expect(player.fullName).toEqual('Doe, John')
 })
 
 it('shows correct score', () => {

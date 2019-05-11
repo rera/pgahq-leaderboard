@@ -1,49 +1,60 @@
 import React from 'react'
-import api from './data/api'
+import { PlayerContext } from './data/DataContext'
 import Leaderboard from './components/Leaderboard'
-import NewPlayerForm from './components/NewPlayerForm'
+import NewPlayer from './components/NewPlayer'
+import api from './data/api'
 
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: [],
-      loading: true
+      players: [],
+      loading: true,
+      data: {
+        loadPlayers: () => {
+          this.apiCall(
+            () => api.allPlayers(),
+            (data) => data
+          )
+        },
+        addPlayer: (player) => {
+          this.apiCall(
+            () => api.createPlayer(player),
+            (data) => this.state.players.concat(data)
+          )
+        },
+        editPlayer: (player) => {
+          this.apiCall(
+            () => api.editPlayer(player),
+            (data) => this.state.players.filter(a => a.id !== data.id).concat(data)
+          )
+        },
+        deletePlayer: (player) => {
+          this.apiCall(
+            () => api.deletePlayer(player.id),
+            (data) => this.state.players.filter(a => a.id !== data.id)
+          )
+        }
+      }
     }
   }
   async apiCall (call, formatResponse) {
     this.setState({ loading: true })
     const data = await call()
-    this.setState({
-      data: formatResponse(data),
-      loading: false
-    })
+    this.setState({ players: formatResponse(data), loading: false })
   }
   componentWillMount () {
-    this.apiCall(
-      () => api.allPlayers(),
-      (data) => data
-    )
-  }
-  onAddPlayer (firstName, lastName, score) {
-    this.apiCall(
-      () => api.createPlayer({ firstName: firstName, lastName: lastName, score: score }),
-      (data) => this.state.data.concat(data)
-    )
-  }
-  onDeletePlayer (player) {
-    this.apiCall(
-      () => api.deletePlayer(player.id),
-      (data) => this.state.data.filter(a => a.id !== data.id)
-    )
+    this.state.data.loadPlayers()
   }
   render () {
     return (
       <div id='page' className={this.state.loading ? 'loading' : 'loaded'}>
-        <header>
-          <NewPlayerForm onAddPlayer={this.onAddPlayer.bind(this)} />
-        </header>
-        <Leaderboard players={this.state.data} onDeletePlayer={this.onDeletePlayer.bind(this)} />
+        <PlayerContext.Provider value={this.state.data}>
+          <header>
+            <NewPlayer />
+          </header>
+          <Leaderboard players={this.state.players} />
+        </PlayerContext.Provider>
       </div>
     )
   }

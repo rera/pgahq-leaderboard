@@ -1,5 +1,6 @@
 import React from 'react'
 import Modal from 'react-modal'
+import { PlayerContext } from '../data/DataContext'
 
 class DeleteConfirmation extends React.Component {
   constructor (props) {
@@ -13,7 +14,7 @@ class DeleteConfirmation extends React.Component {
   }
   handleSubmit (e) {
     e.preventDefault()
-    this.props.onDeletePlayer(this.props.player)
+    this.context.deletePlayer(this.props.player)
     this.toggleModal(false)
   }
   render () {
@@ -26,7 +27,7 @@ class DeleteConfirmation extends React.Component {
       >
         <form onSubmit={this.handleSubmit} data-player={this.props.player.id}>
           <h2>Confirm Delete</h2>
-          <p>Are you sure you want to delete <strong>{this.props.player.name}</strong>?</p>
+          <p>Are you sure you want to delete <strong>{this.props.player.fullName}</strong>?</p>
           <button className='cancel' onClick={() => this.toggleModal(false)}>Cancel</button>
           <input type='submit' value='Yes' />
         </form>
@@ -34,5 +35,5 @@ class DeleteConfirmation extends React.Component {
     )
   }
 }
-
+DeleteConfirmation.contextType = PlayerContext
 export default DeleteConfirmation

@@ -1,4 +1,4 @@
-import Name, {NameError} from '../Name'
+import Name, { NameError } from '../Name'
 
 it('initializes', () => {
   const testName = new Name('John', 'Doe')

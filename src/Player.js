@@ -16,6 +16,9 @@ export default class Player {
   }
 
   get name () {
+    return this._name
+  }
+  get fullName () {
     return this._name.toString()
   }
   set name (value) {

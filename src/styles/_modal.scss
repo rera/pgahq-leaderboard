@@ -9,17 +9,18 @@
 	position: initial !important;
 
 	margin: auto auto;
-	display: flex;
 	max-width: 40em;
 
+	h2 {
+		display: block;
+		color: $navy;
+		font-family: $headings;
+		margin-top: 0;
+		padding-bottom: .5em;
+		border-bottom: solid .05em $chalk;
+	}
+
 	form {
-		h2 {
-			color: $navy;
-			font-family: $headings;
-			margin-top: 0;
-			padding-bottom: .5em;
-			border-bottom: solid .05em $chalk;
-		}
 		p {
 			margin: 0;
 

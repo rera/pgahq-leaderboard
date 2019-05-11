@@ -84,8 +84,18 @@ table#leaderboard {
 				width: 60vw;
 				box-sizing: content-box;
 
-				&.name {
+				&.name > button {
+					font-family: $body;
 					font-weight: $semibold;
+					padding: 0;
+					font-size: 1em;
+					border: none;
+					background: transparent;
+					color: $navy;
+					&:hover {
+						text-decoration: underline;
+						cursor: pointer;
+					}
 				}
 
 				&.delete > button {

@@ -3,13 +3,7 @@ import LeaderboardRow from './LeaderboardRow.js'
 
 class Leaderboard extends React.Component {
   sortPlayers (a, b) {
-    if (a.score === b.score) {
-      return ([b.name, a.name].sort())[0] === b.name ? 1 : -1
-    }
-    return a.score < b.score ? 1 : -1
-  }
-  onDeletePlayer (player) {
-    this.props.onDeletePlayer(player)
+    return (a.score === b.score) ? (b.name > a.name ? -1 : 1) : b.score - a.score
   }
   render () {
     return (
@@ -23,7 +17,7 @@ class Leaderboard extends React.Component {
         </thead>
         <tbody>
           {this.props.players.sort(this.sortPlayers).map((player, key) =>
-            <LeaderboardRow player={player} key={key} onDeletePlayer={this.onDeletePlayer.bind(this)} />
+            <LeaderboardRow player={player} key={key} />
           )}
         </tbody>
       </table>
