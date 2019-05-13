@@ -1,13 +1,16 @@
 #page {
 	#leaderboard {
-		// position: absolute;
-		// left: 0;
-		// right: 0;
-
 		thead {
 			position: absolute;
 			left: 0;
 			right: 0;
+
+			@include sm {
+				left: 10vw;
+			}
+			@include md {
+				left: 25vw;
+			}
 		}
 		tbody {
 			tr:first-of-type td {
@@ -58,6 +61,8 @@
 				top: 0;
 				th {
 					z-index: 2;
+					border-top-left-radius: 0 !important;
+					border-top-right-radius: 0 !important;
 				}
 			}
 		}
