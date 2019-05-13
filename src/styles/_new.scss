@@ -1,5 +1,5 @@
 #newPlayer {
-	button {
+	.addPlayer {
 		visibility: hidden;
 
 		&:before {
@@ -16,7 +16,7 @@
 			line-height: 1.8em;
 			margin-top: .1em;
 			position: relative;
-			right: .4em;
+			right: .3em;
 
 			@include sm {
 				right: .2em;

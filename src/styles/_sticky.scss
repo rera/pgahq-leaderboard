@@ -1,0 +1,69 @@
+#page {
+	#leaderboard {
+		// position: absolute;
+		// left: 0;
+		// right: 0;
+
+		thead {
+			position: absolute;
+			left: 0;
+			right: 0;
+		}
+		tbody {
+			tr:first-of-type td {
+				padding-top: 3em;
+			}
+		}
+	}
+}
+
+#page.sticky {
+	header {
+		position: fixed;
+		top: 0;
+		z-index: 2;
+		visibility: hidden;
+
+		#newPlayer .addPlayer {
+			position: relative;
+	    top: -1.2em;
+	    right: .8em;
+			animation: fade-in 1s;
+			@include sm {
+				right: 11.5vw;
+			}
+			@include md {
+				right: 26vw;
+			}
+
+			&:before {
+				font-size: 1.2em;
+				top: 0;
+				right: 0;
+				background: transparentize($white, 0.9);
+				color: $white;
+				border-color: transparentize($white, 1);
+			}
+			&:hover {
+				&:before {
+					background: transparentize($white, 0.8);
+				}
+			}
+		}
+	}
+	table#leaderboard {
+		thead {
+			tr {
+				position: fixed;
+				top: 0;
+				th {
+					z-index: 2;
+				}
+			}
+		}
+		tbody {
+			z-index: 0;
+		}
+	}
+
+}

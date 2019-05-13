@@ -8,6 +8,7 @@ class NewPlayer extends React.Component {
     super(props)
     this.state = { show: false }
     if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root')
+
   }
   toggleModal (modalOpen) {
     this.setState({ show: modalOpen })

@@ -6,11 +6,12 @@
 @import "./new";
 @import "./modal";
 @import "./loading";
+@import "./sticky";
 
 html, body {
   margin: 0;
   width: 100vw;
-  height: 100vh;
   overflow-x: hidden;
   font-family: $body;
+  -webkit-overflow-scrolling: touch;
 }

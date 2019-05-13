@@ -2,6 +2,7 @@
 .ReactModal__Overlay--after-open {
 	background-color: transparentize($black, 0.3) !important;
 	display: flex;
+	z-index: 9;
 }
 .ReactModal__Content {
 	border-radius: $radius !important;

@@ -1,10 +1,8 @@
-table#leaderboard {
+#leaderboard {
 	width: 100vw;
-	height: 100vh;
 	border-spacing: 0;
 	background-color: $chalk;
-	overflow-y: hidden;
-	
+
 	@include sm {
 		width: 80vw;
 		margin: 2em auto;
@@ -32,8 +30,8 @@ table#leaderboard {
 		}
 	}
 
+
 	thead {
-		position: fixed;
 		width: 100vw;
 
 		@include sm {
@@ -76,29 +74,11 @@ table#leaderboard {
 		}
 	}
 	tbody {
-		display: block;
-		overflow-y: scroll;
-	  -webkit-overflow-scrolling: touch;
-		position: absolute;
-		top: 7.4em;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: 0;
-
-		@include xs {
-			position: relative;
-			overflow-y: auto;
-			top: auto;
-			display: table-row-group;
-		}
-
 		tr {
 			td {
 				text-align: left;
 				line-height: 3.5em;
 				border-bottom: solid .05em $stone;
-				width: 60vw;
 				box-sizing: content-box;
 
 				&.name > button {
@@ -121,7 +101,7 @@ table#leaderboard {
 					border: none;
 					border-radius: $radius;
 					line-height: 3.2em;
-					padding: 0 1em;
+					width: 100%;
 
 					&:hover {
 						background-color: $marble;
