@@ -1,61 +1,65 @@
 import React from 'react'
+import { Form, Input, Scope } from '@rocketseat/unform'
+import * as Yup from 'yup'
 import Player from '../Player'
 
 class PlayerForm extends React.Component {
   constructor (props) {
     super(props)
-
-    if (this.props.player) {
-      this.state = {
-        firstName: this.props.player.name.firstName,
-        lastName: this.props.player.name.lastName,
-        score: this.props.player.score
-      }
-    } else {
-      this.state = { firstName: '', lastName: '', score: '' }
+    this.state = {
+      data: this.props.player || {},
+      schema: Yup.object().shape({
+        name: Yup.object().shape({
+          firstName: Yup.string().required('First name is required.'),
+          lastName: Yup.string().required('Last name is required.')
+        }),
+        score: Yup.number()
+          .typeError('Score must be a number.')
+          .min(0, 'Score must be between 0 and 100.')
+          .max(100, 'Score must be between 0 and 100.')
+          .integer('Score must be a whole number.')
+          .required('Score is required.')
+      })
     }
-
-    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   onClose () {
-    this.setState(
-      { firstName: '', lastName: '', score: '' },
-      this.props.onCancel()
-    )
+    this.props.onCancel()
   }
-  handleChange (e) {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-  handleSubmit (e) {
-    e.preventDefault()
+  handleSubmit (data) {
     const player = new Player(
       this.props.player ? this.props.player.id : -1,
-      this.state.firstName,
-      this.state.lastName,
-      Number(this.state.score)
+      data.name.firstName,
+      data.name.lastName,
+      Number(data.score)
     )
     this.props.onSubmit(player)
     this.onClose()
   }
   render () {
     return (
-      <form onSubmit={this.handleSubmit} className={this.props.new ? 'new' : 'edit'}>
-        <p>
-          <label htmlFor='firstName'>First Name</label>
-          <input type='text' name='firstName' id='firstName' value={this.state.firstName} onChange={this.handleChange} required />
-        </p>
-        <p>
-          <label htmlFor='lastName'>Last Name</label>
-          <input type='text' name='lastName' id='lastName' value={this.state.lastName} onChange={this.handleChange} required />
-        </p>
+      <Form schema={this.state.schema}
+        initialData={this.state.data}
+        onSubmit={this.handleSubmit}
+        className={this.props.new ? 'new' : 'edit'}
+      >
+        <Scope path="name">
+          <p>
+            <label htmlFor='firstName'>First Name</label>
+            <Input name="firstName" />
+          </p>
+          <p>
+            <label htmlFor='lastName'>Last Name</label>
+            <Input name="lastName" />
+          </p>
+        </Scope>
         <p>
           <label htmlFor='score'>Score</label>
-          <input type='number' min='0' max='100' name='score' id='score' value={this.state.score} onChange={this.handleChange} required />
+          <Input name="score" />
         </p>
         <button className='cancel' onClick={() => this.onClose()}>Cancel</button>
         <input type='submit' value={this.props.new ? 'Add' : 'Save'} />
-      </form>
+      </Form>
     )
   }
 }
