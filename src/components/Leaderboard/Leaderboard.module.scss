@@ -1,0 +1,77 @@
+@import '../../styles/variables';
+
+table {
+	width: 100vw;
+	border-spacing: 0;
+	background-color: $chalk;
+
+	@include sm {
+		width: 80vw;
+		margin: 2em auto;
+	}
+	@include md {
+		width: 50vw;
+	}
+
+	.name, .score, .delete {
+		padding: 0 1em;
+	}
+	.name {
+		width: 60vw;
+	}
+	.score {
+		width: 20vw;
+		@include xs {
+			width: 30vw;
+		}
+	}
+	.delete {
+		width: 20vw;
+		@include xs {
+			width: 10vw;
+		}
+	}
+
+	thead {
+		width: 100vw;
+
+		@include sm {
+			position: relative;
+			width: 80vw;
+		}
+		@include md {
+			width: 50vw;
+		}
+
+		tr {
+			width: 100vw;
+			@include sm {
+				width: 80vw;
+			}
+			@include md {
+				width: 50vw;
+			}
+
+			th {
+				font-family: $headings;
+				font-weight: $bold;
+				text-align: left;
+				line-height: 3em;
+				background-color: $navy;
+				color: $chalk;
+
+				&:nth-of-type(1) {
+					@include sm {
+						border-top-left-radius: $radius;
+					}
+				}
+
+				&:nth-of-type(3) {
+					@include sm {
+						border-top-right-radius: $radius;
+					}
+				}
+			}
+		}
+	}
+}

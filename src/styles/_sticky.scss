@@ -1,0 +1,73 @@
+#app {
+	table {
+		thead {
+			position: absolute;
+			left: 0;
+			right: 0;
+
+			@include sm {
+				left: 10vw;
+			}
+			@include md {
+				left: 25vw;
+			}
+		}
+		tbody {
+			tr:first-of-type td {
+				padding-top: 3em;
+			}
+		}
+	}
+}
+
+#app.sticky {
+	header {
+		position: fixed;
+		top: 0;
+		z-index: 2;
+		visibility: hidden;
+
+		div button {
+			position: relative;
+	    top: -1.2em;
+	    right: .8em;
+			animation: fade-in 1s;
+			@include sm {
+				right: 11.5vw;
+			}
+			@include md {
+				right: 26vw;
+			}
+
+			&:before {
+				font-size: 1.2em;
+				top: 0;
+				right: 0;
+				background: transparentize($white, 0.9);
+				color: $white;
+				border-color: transparentize($white, 1);
+			}
+			&:hover {
+				&:before {
+					background: transparentize($white, 0.8);
+				}
+			}
+		}
+	}
+	table {
+		thead {
+			tr {
+				position: fixed;
+				top: 0;
+				th {
+					z-index: 2;
+					border-top-left-radius: 0 !important;
+					border-top-right-radius: 0 !important;
+				}
+			}
+		}
+		tbody {
+			z-index: 0;
+		}
+	}
+}

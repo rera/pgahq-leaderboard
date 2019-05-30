@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+
+:global(.ReactModal__Overlay--after-open) {
+	background-color: transparentize($black, 0.3) !important;
+	display: flex;
+	z-index: 9;
+}
+:global(.ReactModal__Content) {
+	border-radius: $radius !important;
+	border: none !important;
+	position: initial !important;
+
+	margin: auto auto;
+	max-width: 40em;
+
+	h2 {
+		display: block;
+		color: $navy;
+		font-family: $headings;
+		margin-top: 0;
+		padding-bottom: .5em;
+		border-bottom: solid .05em $chalk;
+	}
+}
+
+form {
+	p {
+		margin: 0;
+
+		label {
+			display: block;
+			margin: 0 0 .5em 0;
+			font-size: .8em;
+			color: $granite;
+		}
+
+		input {
+			display: block;
+			font-size: 1.5em;
+			line-height: 2em;
+			margin: 0 0 1em 0;
+			padding: 0 .5em;
+			box-sizing: content-box;
+			background: $chalk;
+			border: none;
+			color: $slate;
+
+			&~span {
+			    font-size: .8em;
+			    color: red;
+			    position: relative;
+			    top: -1.5em;
+			}
+		}
+	}
+	input[type="submit"], button {
+		display: block;
+		background: transparentize($gold, 0.2);
+		color: $white;
+		border: none;
+		border-radius: $radius;
+		font-size: 1.5em;
+		line-height: 2em;
+		padding: 0 2em;
+		margin: 1em auto 0;
+		width: 100%;
+		cursor: pointer;
+
+		&:hover {
+			background: $gold;
+		}
+
+		&.cancel {
+			background: transparentize($marble, 0.2);
+
+			&:hover {
+				background: $marble;
+			}
+		}
+		button.cancel + input[type="submit"] {
+			width: 50%;
+		}
+	}
+
+	// validation
+	.isValidated input:valid~.invalidFeedback {
+    display: none;
+	}
+}

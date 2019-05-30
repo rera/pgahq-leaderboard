@@ -1,0 +1,44 @@
+@import '../styles/variables';
+@import '../styles/loading';
+:global { @import '../styles/sticky'; }
+
+:global(html, body) {
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: $body;
+  -webkit-overflow-scrolling: touch;
+}
+
+header {
+	display: block;
+	width: 100vw;
+	height: 4.4em;
+	line-height: 4.4em;
+	text-align: right;
+	color: $white;
+	background: $white url('/assets/logo.svg') no-repeat .7em .7em;
+	background-size: auto 3em;
+
+	@include sm {
+		background-color: $white;
+		box-shadow: 0 0 20px rgba(0,0,0,.1);
+	}
+	@include md {
+		width: 50vw;
+    left: 50%;
+		box-shadow: none;
+		margin: auto;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 100vw;
+			position: absolute;
+			left: 0;
+			height: 4.4em;
+			box-shadow: 0 0 20px rgba(0,0,0,.1);
+			z-index: -1;
+		}
+	}
+}

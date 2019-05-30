@@ -1,0 +1,22 @@
+[
+	{ "id": 1, "firstName": "Kera", "lastName": "Karst", "score": 100 },
+	{ "id": 2, "firstName": "Jayson", "lastName": "Mcbrayer", "score": 80 },
+	{ "id": 3, "firstName": "Lissa", "lastName": "Naughton", "score": 67 },
+	{ "id": 4, "firstName": "Lee", "lastName": "Harnish", "score": 79 },
+	{ "id": 5, "firstName": "Aracelis", "lastName": "Gladfelter", "score": 63 },
+	{ "id": 6, "firstName": "Yanira", "lastName": "Stillson", "score": 46 },
+	{ "id": 7, "firstName": "Stanley", "lastName": "Gatewood", "score": 62 },
+	{ "id": 8, "firstName": "Teresita", "lastName": "Huffaker", "score": 69 },
+	{ "id": 9, "firstName": "Lyn", "lastName": "Oaks", "score": 17 },
+	{ "id": 10, "firstName": "Gilma", "lastName": "Mcglown", "score": 99 },
+	{ "id": 11, "firstName": "Ramon", "lastName": "Lorentzen", "score": 76 },
+	{ "id": 12, "firstName": "Liz", "lastName": "Yamasaki", "score": 94 },
+	{ "id": 13, "firstName": "Janeth", "lastName": "Kriebel", "score": 99 },
+	{ "id": 14, "firstName": "Nelia", "lastName": "Brownstein", "score": 55 },
+	{ "id": 15, "firstName": "Anisha", "lastName": "Steele", "score": 53 },
+	{ "id": 16, "firstName": "Opal", "lastName": "Broadhead", "score": 20 },
+	{ "id": 17, "firstName": "Tamra", "lastName": "Trull", "score": 29 },
+	{ "id": 18, "firstName": "Nickolas", "lastName": "Lyden", "score": 88 },
+	{ "id": 19, "firstName": "Armando", "lastName": "Bryon", "score": 30 },
+	{ "id": 20, "firstName": "Palmer", "lastName": "Cimino", "score": 54 }
+]

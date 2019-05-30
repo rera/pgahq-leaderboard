@@ -1,0 +1,52 @@
+//breakpoints
+$screen-xsmall: 30em; // 480px
+$screen-small: 48em; // 768px
+$screen-medium: 64em; // 1024px
+$screen-large: 85.375em; // 1366px
+$screen-xlarge: 120em; // 1920px
+$screen-xxlarge: 160em; // 2560px
+
+// Media Queries
+$screen-xsmall-query: "(min-width: #{$screen-xsmall})";
+$screen-small-query: "(min-width: #{$screen-small})";
+$screen-medium-query: "(min-width: #{$screen-medium})";
+$screen-large-query: "(min-width: #{$screen-large})";
+$screen-xlarge-query: "(min-width: #{$screen-xlarge})";
+$screen-xxlarge-query: "(min-width: #{$screen-xxlarge})";
+$screen-retina-query: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
+
+@mixin xs {
+	@media #{$screen-xsmall-query} {
+		@content;
+	}
+}
+@mixin sm {
+	@media #{$screen-small-query} {
+		@content;
+	}
+}
+@mixin md {
+	@media #{$screen-medium-query} {
+		@content;
+	}
+}
+@mixin lg {
+	@media #{$screen-large-query} {
+		@content;
+	}
+}
+@mixin xl {
+	@media #{$screen-xlarge-query} {
+		@content;
+	}
+}
+@mixin xxl {
+	@media #{$screen-xxlarge-query} {
+		@content;
+	}
+}
+@mixin r {
+	@media #{$screen-retina-query} {
+		@content;
+	}
+}
